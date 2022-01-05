@@ -1,0 +1,36 @@
+.c-lp{
+    background-color: rgb(253, 173, 0) !important;
+}
+
+::ng-deep .mat-expansion-panel-body, .mat-expansion-panel, .mat-expansion-panel-header.mat-expanded, .mat-expansion-panel-header-label, .mat-expansion-panel-header-label.mat-expanded:hover, .mat-expansion-panel-header-label.mat-expanded[_ngcontent-kji-c112]:hover, .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover  {
+    background-color: rgb(253, 173, 0);
+  } 
+
+.c-w{
+    background-color: white;
+
+  }
+
+.c-p{
+    color: purple;
+    font-weight: bold;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+/* ::ng-deep .mat-expansion-panel-header-title{
+    color: white;
+}
+
+
+::ng-deep
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after{
+    color: purple;
+} */
+
+
+.max-h{
+  height: 100vh;
+}

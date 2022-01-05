@@ -1,0 +1,34 @@
+<app-history-toolbar></app-history-toolbar>
+
+<div class="container m20" *ngIf="allNotifications.length === 0">
+    <div class="d-flex justify-content-center m-50">
+        <h2 class="emptytext">Notification history is clear</h2>
+    </div>
+</div>
+
+ 
+ <cdk-virtual-scroll-viewport itemSize="50" class="max-h" *ngIf="allNotifications.length > 0">
+        <mat-list>
+            <app-notification *cdkVirtualFor="let not of allNotifications.slice().reverse()" [name]="not.studentName"
+                [tranType]="not.tranType" [id]="not.id">
+
+            </app-notification>
+        </mat-list>
+
+ </cdk-virtual-scroll-viewport>
+
+
+
+
+ <div class="container footer" (click)="clearNotsHistory()">
+     <div class=" d-flex justify-content-center">
+        <button mat-button >Clear Notifications History</button>
+     </div>
+ </div>
+
+<!-- <button mat-button (click)="clearNotsHistory()">Clear Notifications History</button> -->
+
+
+<!-- align="end" -->
+<!-- 
+*cdkVirtualFor -->

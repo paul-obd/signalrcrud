@@ -1,0 +1,58 @@
+<mat-list>
+    <mat-list-item>
+        <h2>Add Student</h2>
+        <span class="example-spacer"></span>
+        <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+        <button mat-icon-button mat-dialog-close >
+            <mat-icon>close</mat-icon>
+          </button>
+    </mat-list-item>
+</mat-list>
+
+<div mat-dialog-content>
+
+
+    <div class="container ">
+        <div class="row row-cols-1">
+
+
+            <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="studentName">
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                <div class="col"
+                    *ngIf="!studentForm.get('studentName').valid && studentForm.get('studentName').touched">
+                    <span class="c-y"> Please student name is required ! </span>
+                </div>
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Major</mat-label>
+                            <input matInput formControlName="studentMajor">
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                <div class="col"
+                    *ngIf="!studentForm.get('studentMajor').valid && studentForm.get('studentMajor').touched">
+                    <span class="c-y"> Please student major is required ! </span>
+                </div>
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" mat-raised-button mat-dialog-close class="c-p">Add</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>

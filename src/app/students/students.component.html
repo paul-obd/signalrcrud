@@ -1,0 +1,63 @@
+<app-toolbar></app-toolbar>
+<div *ngIf="allNotifications.length > 0" class="c-lp">
+    <mat-list>
+        <mat-list-item>
+
+            <h3>{{allNotifications.length == 1? "You have 1 new notification" : "You have " +
+                allNotifications.length + "
+                new notifications" }}
+            </h3>
+
+            <span class="example-spacer"></span>
+
+            <h3 class="c-p" (click)="clearNotifications()">Mark as
+                seen</h3>
+
+        </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <app-notification *ngFor="let not of allNotifications.slice().reverse()" [name]="not.studentName"
+            [tranType]="not.tranType">
+        </app-notification>
+    </mat-list>
+
+    <!-- <mat-list-item class="d-flex justify-content-end">
+        <mat-divider></mat-divider>
+        <button class="c-lp" mat-raised-button (click)="clearNotifications()">Mark as seen</button>
+    </mat-list-item> -->
+
+
+    <!-- <ng-template [ngIf]="allNotifications.length > 0">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    
+                    {{allNotifications.length == 1? "You have 1 new notification" : "You have " +
+                    allNotifications.length + "
+                    new notifications" }}
+                </mat-panel-title>
+     
+            </mat-expansion-panel-header>
+            <p>ana essme paul</p>
+         
+        </mat-expansion-panel>
+    </mat-accordion>
+</ng-template> -->
+</div>
+
+
+
+<cdk-virtual-scroll-viewport itemSize="50" class="max-h">
+    <mat-list>
+        <app-student *cdkVirtualFor="let student of allStudents.slice().reverse()" [id]="student.id" [name]="student.name"
+            [major]="student.major">
+        </app-student>
+    </mat-list>
+
+</cdk-virtual-scroll-viewport>
+
+
+
+<!-- [ngClass]="{'c-w': allNotifications.length == 0}" -->

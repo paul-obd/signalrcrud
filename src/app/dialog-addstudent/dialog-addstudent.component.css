@@ -1,0 +1,58 @@
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: purple !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: purple !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: purple !important;;
+  }
+
+  .c-y{
+      color: red;
+
+  }
+
+  .c-p{
+      background-color: purple;
+      color: yellow;
+  }
+
+  .mt0{
+      margin-top: 0% !important;
+  }
+
+  
+  ::ng-deep .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    margin-bottom: 7%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
