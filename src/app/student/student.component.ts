@@ -5,6 +5,7 @@ import { Student } from 'src/entities/Student';
 import { SignalrService } from '../services/signalr.service';
 import { StudentsdataService } from '../services/studentsdata.service';
 import { UpdatedialogComponent } from '../updatedialog/updatedialog.component';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-student',
@@ -16,7 +17,9 @@ export class StudentComponent implements OnInit {
   @Input() name = ""
   @Input() major = ""
 
-  constructor(private dialog: MatDialog, private shttp: StudentsdataService, private signalr: SignalrService) { }
+
+
+  constructor(private spinner: NgxSpinnerService,private dialog: MatDialog, private shttp: StudentsdataService, private signalr: SignalrService) { }
 
   ngOnInit(): void {
   }
@@ -34,12 +37,15 @@ export class StudentComponent implements OnInit {
   deleteStudent(){
     
     if (confirm(`Are you sure you want to delete ${this.name}?`)) {
+      // this.spinnerStatus = "Deleting..."
+      this.spinner.show("delete")
       this.shttp.deleteStudent(this.id).subscribe((res: Student)=>{
         var not: Notificationn = new Notificationn()
         not.studentName = this.name +" " + this.id
         not.tranType = "deleted"
         this.signalr.InvokeNewDeletedStudent(res)
         this.signalr.InvokeNewNotification(not)
+        this.spinner.hide("delete")
   
       })
     }

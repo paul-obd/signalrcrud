@@ -3,9 +3,9 @@
         <h2>Add Student</h2>
         <span class="example-spacer"></span>
         <!-- <button mat-button mat-dialog-close>Cancel</button> -->
-        <button mat-icon-button mat-dialog-close >
+        <button mat-icon-button mat-dialog-close>
             <mat-icon>close</mat-icon>
-          </button>
+        </button>
     </mat-list-item>
 </mat-list>
 
@@ -22,27 +22,46 @@
                         <mat-form-field appearance="fill">
                             <mat-label>Name</mat-label>
                             <input matInput formControlName="studentName">
+                            <!-- hon -->
+                            <mat-icon matSuffix class="green-check"
+                                *ngIf="studentForm.get('studentName').valid && studentForm.get('studentName').touched">
+                                check_circle</mat-icon>
+                            <mat-icon matSuffix class="example-tab-icon red-caution-lab"
+                                *ngIf="!studentForm.get('studentName').valid && studentForm.get('studentName').touched">
+                                error
+                            </mat-icon>
                         </mat-form-field>
 
                     </div>
                 </div>
-                <div class="col"
+
+
+                <!-- <div class="col"
                     *ngIf="!studentForm.get('studentName').valid && studentForm.get('studentName').touched">
                     <span class="c-y"> Please student name is required ! </span>
-                </div>
+                </div> -->
+
                 <div class="col">
                     <div class="d-flex justify-content-center">
                         <mat-form-field appearance="fill">
                             <mat-label>Major</mat-label>
                             <input matInput formControlName="studentMajor">
+                            <!-- hon -->
+                            <mat-icon matSuffix class="green-check"
+                                *ngIf="studentForm.get('studentMajor').valid && studentForm.get('studentMajor').touched">
+                                check_circle</mat-icon>
+                            <mat-icon matSuffix class="example-tab-icon red-caution-lab"
+                                *ngIf="!studentForm.get('studentMajor').valid && studentForm.get('studentMajor').touched">
+                                error
+                            </mat-icon>
                         </mat-form-field>
 
                     </div>
                 </div>
-                <div class="col"
+                <!-- <div class="col"
                     *ngIf="!studentForm.get('studentMajor').valid && studentForm.get('studentMajor').touched">
                     <span class="c-y"> Please student major is required ! </span>
-                </div>
+                </div> -->
                 <div class="col">
                     <div class="d-flex justify-content-center">
                         <button type="submit" mat-raised-button mat-dialog-close class="c-p">Add</button>
@@ -56,3 +75,12 @@
     </div>
 
 </div>
+
+<!-- 
+
+<mat-icon matSuffix class="green-check"
+    *ngIf="studentForm.get('studentMajor').valid && studentForm.get('studentMajor').touched">
+    check_circle</mat-icon>
+<mat-icon matSuffix class="example-tab-icon red-caution-lab"
+    *ngIf="!studentForm.get('studentMajor').valid && studentForm.get('studentMajor').touched">error
+</mat-icon> -->

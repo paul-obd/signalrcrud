@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,8 @@ import { NotificationsHistoryComponent } from './notifications-history/notificat
 import { NotificationsServiceService } from './services/notifications-service.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HistoryToolbarComponent } from './history-toolbar/history-toolbar.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +40,12 @@ import { HistoryToolbarComponent } from './history-toolbar/history-toolbar.compo
     MaterialModule,
     InfiniteScrollModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers: [NotificationsServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  
 })
 export class AppModule { }

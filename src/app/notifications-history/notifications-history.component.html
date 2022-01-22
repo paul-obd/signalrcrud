@@ -1,8 +1,8 @@
 <app-history-toolbar></app-history-toolbar>
-
+<ngx-spinner  color="#fff" type="ball-beat"><p style="color: white" > Loading... </p></ngx-spinner>
 <div class="container m20" *ngIf="allNotifications.length === 0">
     <div class="d-flex justify-content-center m-50">
-        <h2 class="emptytext">Notification history is clear</h2>
+        <h2 class="emptytext">Operations history is clear</h2>
     </div>
 </div>
 
@@ -22,7 +22,7 @@
 
  <div class="container footer" (click)="clearNotsHistory()">
      <div class=" d-flex justify-content-center">
-        <button mat-button >Clear Notifications History</button>
+        <button mat-button >Clear Operations History</button>
      </div>
  </div>
 

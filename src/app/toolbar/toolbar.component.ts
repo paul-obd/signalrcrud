@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(private route: Router,private Shttp: StudentsdataService, private dialog: MatDialog, private ngZone: NgZone,) { }
+  constructor(private route: Router,public Shttp: StudentsdataService, private dialog: MatDialog, private ngZone: NgZone,) { }
 
   ngOnInit(): void {
  

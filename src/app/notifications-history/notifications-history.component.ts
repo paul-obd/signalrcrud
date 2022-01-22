@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component,  OnInit } from '@angular/core';
 import { Notificationn } from 'src/entities/Notification';
 import { NotificationsServiceService } from '../services/notifications-service.service';
 import { SignalrService } from '../services/signalr.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-notifications-history',
   templateUrl: './notifications-history.component.html',
@@ -14,7 +14,7 @@ export class NotificationsHistoryComponent implements OnInit {
 
   allNotifications: Notificationn[] = []
 
-  constructor(private nhttp: NotificationsServiceService, private signalr: SignalrService,private cdr: ChangeDetectorRef) {
+  constructor(private spinner: NgxSpinnerService,private nhttp: NotificationsServiceService, private signalr: SignalrService,private cdr: ChangeDetectorRef) {
     signalr.NewNotification().subscribe((not: Notificationn)=>{
       this.allNotifications.push(not)
       cdr.detectChanges()
@@ -26,9 +26,11 @@ export class NotificationsHistoryComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.spinner.show()
     this.nhttp.getAllNotifications().subscribe((res: Notificationn[])=>{
       this.allNotifications = []
       this.allNotifications =res
+      this.spinner.hide()
     })
     
   }

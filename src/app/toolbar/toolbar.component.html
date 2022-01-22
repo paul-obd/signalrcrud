@@ -8,7 +8,10 @@
         <mat-icon class="c-p">history</mat-icon>
     </button>
 
-    <button mat-icon-button class="example-icon favorite-icon" (click)="openDialog()">
+    <button *ngIf="!Shttp.desable" mat-icon-button class="example-icon favorite-icon" (click)="openDialog()">
+        <mat-icon class="c-p">add</mat-icon>
+    </button>
+    <button *ngIf="Shttp.desable" mat-icon-button class="example-icon favorite-icon" disabled>
         <mat-icon class="c-p">add</mat-icon>
     </button>
 

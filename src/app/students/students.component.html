@@ -1,4 +1,8 @@
 <app-toolbar></app-toolbar>
+<!-- https://paul-obd.github.io/signalrcrud/ -->
+<ngx-spinner  color="#fff" type="ball-beat"><p style="color: white" > Loading... </p></ngx-spinner>
+<ngx-spinner name="update"  color="#fff" type="ball-beat"><p style="color: white" > Updating... </p></ngx-spinner>
+<ngx-spinner name="delete"  color="#fff" type="ball-beat"><p style="color: white" > Deleting... </p></ngx-spinner>
 <div *ngIf="allNotifications.length > 0" class="c-lp">
     <mat-list>
         <mat-list-item>
@@ -8,7 +12,7 @@
                 new notifications" }}
             </h3>
 
-            <span class="example-spacer"></span>
+            <span class="example-spacer"></span> 
 
             <h3 class="c-p" (click)="clearNotifications()">Mark as
                 seen</h3>
@@ -51,8 +55,8 @@
 
 <cdk-virtual-scroll-viewport itemSize="50" class="max-h">
     <mat-list>
-        <app-student *cdkVirtualFor="let student of allStudents.slice().reverse()" [id]="student.id" [name]="student.name"
-            [major]="student.major">
+        <app-student *cdkVirtualFor="let student of allStudents.slice().reverse()" [id]="student.id"
+            [name]="student.name" [major]="student.major">
         </app-student>
     </mat-list>
 

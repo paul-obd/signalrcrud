@@ -5,6 +5,7 @@ import { Notificationn } from 'src/entities/Notification';
 import { Student } from 'src/entities/Student';
 import { SignalrService } from '../services/signalr.service';
 import { StudentsdataService } from '../services/studentsdata.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-updatedialog',
@@ -16,7 +17,7 @@ export class UpdatedialogComponent implements OnInit {
 
   studentForm: FormGroup;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Student, private Shttp: StudentsdataService, private signalr: SignalrService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Student, private Shttp: StudentsdataService, private signalr: SignalrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.initForm()
@@ -24,6 +25,7 @@ export class UpdatedialogComponent implements OnInit {
   }
 
   onSubmit(){
+    this.spinner.show("update")
     var student: Student = new Student()
     student.id = this.data.id
     student.name = this.studentForm.get('studentName').value;
@@ -34,6 +36,7 @@ export class UpdatedialogComponent implements OnInit {
       not.tranType = "updated"
       this.signalr.InvokeNewUpdatedStudent(res)
       this.signalr.InvokeNewNotification(not)
+      this.spinner.hide("update")
     })
 
   }

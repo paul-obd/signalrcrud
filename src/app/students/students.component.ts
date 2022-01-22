@@ -3,6 +3,7 @@ import { Notificationn } from 'src/entities/Notification';
 import { Student } from 'src/entities/Student';
 import { SignalrService } from '../services/signalr.service';
 import { StudentsdataService } from '../services/studentsdata.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-students',
@@ -16,7 +17,7 @@ export class StudentsComponent implements OnInit {
   sum = 20;
   direction = "";
 
-  constructor(private Shttp: StudentsdataService, private signalR: SignalrService,  private cdr: ChangeDetectorRef) {
+  constructor(private Shttp: StudentsdataService, private signalR: SignalrService,  private cdr: ChangeDetectorRef, private spinner: NgxSpinnerService ) {
     signalR.NewNotification().subscribe((notification: Notificationn) => {
       
       //this.allNotifications.map(not => { }, this.allNotifications.push(notification))
@@ -53,6 +54,7 @@ export class StudentsComponent implements OnInit {
     //   this.allStudents = res
     //   this.Shttp.startConnection()
     // })
+    this.spinner.show()
      this.getAllStudents()
     
 
@@ -68,49 +70,14 @@ export class StudentsComponent implements OnInit {
     this.Shttp.getAllStudents().subscribe((res: any[]) => {
       this.allStudents = []
       this.allStudents = res
+      this.spinner.hide()
+      this.Shttp.desable = false
       this.Shttp.startConnection()
+
     })
     
   }
 
-  // onScrollDown(ev: any) {
-  //   console.log("scrolled down!!", ev);
-
-  //   this.sum += 20;
-  //   this.appendItems();
-    
-  //   this.direction = "scroll down";
-  // }
-
-  // onScrollUp(ev: any) {
-  //   console.log("scrolled up!", ev);
-  //   this.sum += 20;
-  //   this.prependItems();
-
-  //   this.direction = "scroll up";
-  // }
-
-  // appendItems() {
-  //   this.addItems("push");
-  // }
-
-  // prependItems() {
-  //   this.addItems("unshift");
-  // }
-
-  // addItems(_method: string) {
-  //   this.Shttp.getAllStudents().subscribe((res: Student[])=>{
-  //     for (let i = 0; i < this.sum; ++i) {
-  //       if( _method === 'push'){
-  //         this.allStudents.push(res[i]);
-  //       }else if( _method === 'unshift'){
-  //         this.allStudents.unshift(res[i]);
-  //       }
-  //     }
-
-  //   })
-  
-  // }
 
 
 }

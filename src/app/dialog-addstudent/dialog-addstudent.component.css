@@ -56,3 +56,12 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+
+  .red-caution-lab{
+      color: red !important;
+  }
+
+  .green-check{
+    color: rgb(33, 226, 7) !important;
+}

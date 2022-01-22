@@ -17,6 +17,13 @@
       color: red;
 
   }
+  .red-caution-lab{
+    color: red !important;
+}
+
+.green-check{
+  color: rgb(33, 226, 7) !important;
+}
 
   .c-p{
       background-color: purple;
